@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SafetyForAllApp.Views.MainPage"
+             Title="{Binding Title}" BackgroundColor="White">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Image Source="BarImage.jpg"/>
+
+        <Entry Text="Username, Phone or Email" FontSize="Small"
+               TextColor="Black"/>
+            
+        <Entry Text="Password" FontSize="Small" TextColor="Black"/>
+
+        <Button Text="Log In" Command="{Binding LogInCommand}" Margin="20,0,20,0"/>
+
+        <Label Text="Forgot Password" TextColor="Black"/>
+
+        <Label Text="Or" HorizontalOptions="CenterAndExpand"  TextColor="Black"/>
+
+        <Button Text="Create New Account" Command="{Binding CreateNewAccountCommand}"
+                Margin="20,0,20,0"/>
+         
+    </StackLayout>
+    
+     
+
+</ContentPage>

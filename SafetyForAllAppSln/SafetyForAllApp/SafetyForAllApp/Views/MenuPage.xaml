@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SafetyForAllApp.Views.MenuPage" BackgroundColor="White">
+    <StackLayout>
+        
+        <Label Text="Feel Unsafe?" TextColor="Black" Margin="70,50,70,-60" 
+               HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+        <Label Text="Press To The Button To Send Arlet" TextColor="Black" 
+               Margin="70,70,20,0" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+        <Image Source="alert.png" Margin="10,0,10,10" WidthRequest="140" HeightRequest="240">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding HelpMeCommand}">
+                </TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+
+
+        <Label Text="H E L P   M E !!" TextColor="Red" FontAttributes="Bold" FontSize="Large" 
+               HorizontalOptions="CenterAndExpand" Margin="0,-60,0,0"/>
+        
+    </StackLayout>
+</ContentPage>

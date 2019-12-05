@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SafetyForAllApp.Views.Profile">
+    <StackLayout>
+        <Label Text="S E L F - D E F E N S E   T I P S" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" HeightRequest="100"/>
+    </StackLayout>
+</ContentPage>
