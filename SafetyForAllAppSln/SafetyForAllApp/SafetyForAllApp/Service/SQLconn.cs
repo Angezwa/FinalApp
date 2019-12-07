@@ -57,5 +57,10 @@ namespace SafetyForAllApp.MyDatabase
         {
             return database.DeleteAsync(item);
         }
+
+        public async Task<SignUpDetails> GetUserByUserName(string userName)
+        {
+            return await database.Table<SignUpDetails>().Where(x => x.Username == userName).FirstOrDefaultAsync();
+        }
     }
 }

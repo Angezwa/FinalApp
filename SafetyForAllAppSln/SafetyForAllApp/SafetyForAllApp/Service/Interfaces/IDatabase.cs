@@ -13,6 +13,7 @@ namespace SafetyForAllApp.Service.Interfaces
         Task<SignUpDetails> GetItemAsync(int id);
         Task<int> SaveItemAsync(SignUpDetails item);
         Task<int> DeleteItemAsync(SignUpDetails item);
+        Task<SignUpDetails> GetUserByUserName(string userName);
 
     }
 }

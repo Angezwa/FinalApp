@@ -78,19 +78,19 @@ namespace SafetyForAllApp.Service
             _allMenuItems = new List<DetailsItem>();
 
             var menuItem = new DetailsItem();
-            menuItem.Id = 1;
-            menuItem.DetailsItemName = "Login";
-            menuItem.NavigationPath = "NavigationPage/MainPage";
-            menuItem.MenuType = MenuItemEnum.Login;
-            menuItem.MenuOrder = 1;
-            menuItem.DetailsImageName = "login.png";
+            menuItem.Id = 2;
+            menuItem.DetailsItemName = "Home";
+            menuItem.NavigationPath = "NavigationPage/MenuPage";
+            menuItem.MenuType = MenuItemEnum.UnSecured;
+            menuItem.MenuOrder = 2;
+            menuItem.DetailsImageName = "H.png";
 
             _allMenuItems.Add(menuItem);
 
             menuItem = new DetailsItem();
             menuItem.Id = 2;
             menuItem.DetailsItemName = "Logout";
-            menuItem.NavigationPath = "";
+            menuItem.NavigationPath = "NavigationPage/MainPage";
             menuItem.MenuOrder = 99;
             menuItem.MenuType = MenuItemEnum.LogOut;
             menuItem.DetailsImageName = "logout.png";
@@ -98,24 +98,46 @@ namespace SafetyForAllApp.Service
             _allMenuItems.Add(menuItem);
 
             menuItem = new DetailsItem();
-            menuItem.Id = 3;
+            menuItem.Id = 4;
             menuItem.DetailsItemName = "Self Difense Tips ";
             menuItem.NavigationPath = "NavigationPage/SelfDefenseTips";
-            menuItem.MenuOrder = 3;
+            menuItem.MenuOrder = 4;
             menuItem.MenuType = MenuItemEnum.UnSecured;
-            menuItem.DetailsImageName = "map.png";
+            menuItem.DetailsImageName = "SD.png";
 
             _allMenuItems.Add(menuItem);
 
             menuItem = new DetailsItem();
-            menuItem.Id = 4;
-            menuItem.DetailsItemName = "Profile";
+            menuItem.Id = 3;
+            menuItem.DetailsItemName = "My Profile";
             menuItem.NavigationPath = "NavigationPage/Profile";
-            menuItem.MenuOrder = 4;
+            menuItem.MenuOrder = 3;
             menuItem.MenuType = MenuItemEnum.UnSecured;
-            menuItem.DetailsImageName = "other.png";
+            menuItem.DetailsImageName = "ED.png";
 
             _allMenuItems.Add(menuItem);
+
+            menuItem = new DetailsItem();
+            menuItem.Id = 5;
+            menuItem.DetailsItemName = "Map";
+            menuItem.NavigationPath = "NavigationPage/Profile";
+            menuItem.MenuOrder = 5;
+            menuItem.MenuType = MenuItemEnum.UnSecured;
+            menuItem.DetailsImageName = "Map.png";
+
+            _allMenuItems.Add(menuItem);
+
+            menuItem = new DetailsItem();
+            menuItem.Id = 1;
+            menuItem.DetailsItemName = "About Us";
+            menuItem.NavigationPath = "NavigationPage/Profile";
+            menuItem.MenuOrder = 1;
+            menuItem.MenuType = MenuItemEnum.UnSecured;
+            menuItem.DetailsImageName = "Info.png";
+
+            _allMenuItems.Add(menuItem);
+
+
 
 
         }

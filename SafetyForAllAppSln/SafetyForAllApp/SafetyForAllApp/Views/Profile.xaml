@@ -3,8 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="SafetyForAllApp.Views.Profile">
+             x:Class="SafetyForAllApp.Views.Profile" >
     <StackLayout>
-        <Label Text="S E L F - D E F E N S E   T I P S" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" HeightRequest="100"/>
+        <Image Source="P.png" Margin="80,40,80,40"/>
+        <StackLayout>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                
+                <Entry Text="{Binding Username}" Grid.Row="0" Grid.Column="0" 
+                       Placeholder="Username" HorizontalOptions="Center"/>
+                <Entry Text="{Binding FullNames}" Grid.Row="1" Grid.Column="0" 
+                       Placeholder="FullName" HorizontalOptions="Center"/>
+                <Entry Text="{Binding Gender}" Grid.Row="2" Grid.Column="0" 
+                       Placeholder="Gender" HorizontalOptions="Center"/>
+                <Entry Text="{Binding Address}" Grid.Row="3" Grid.Column="0" 
+                       Placeholder="Address" HorizontalOptions="Center"/>
+                <Entry Text="{Binding PhoneNumber}" Grid.Row="4" Grid.Column="0" 
+                       Placeholder="Phone Number" HorizontalOptions="Center"/>
+
+                <Button Text="Save Changes" Grid.Row="5" Grid.Column="0" CornerRadius="20"/>
+            </Grid>
+        </StackLayout>
+
     </StackLayout>
 </ContentPage>

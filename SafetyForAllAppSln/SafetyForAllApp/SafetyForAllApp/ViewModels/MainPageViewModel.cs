@@ -2,6 +2,7 @@
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using SafetyForAllApp.Messages;
 using SafetyForAllApp.Model;
 using SafetyForAllApp.Service.Interfaces;
@@ -14,6 +15,10 @@ namespace SafetyForAllApp.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+        private IDatabase _database;
+        private IPageDialogService _dialogService;
+        public bool PasswordExist { get; set; }
+
         private IMenuService _menuService;
         private IEventAggregator _eventAggregator;
 
@@ -25,28 +30,46 @@ namespace SafetyForAllApp.ViewModels
         public DelegateCommand LogInCommand =>
             _logInCommand ?? (_logInCommand = new DelegateCommand(ExecuteLogInCommand));
 
-       private async void ExecuteLogInCommand()
+
+        private SignUpDetails _details;
+        public SignUpDetails Details
         {
-            await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation:true);
+            get { return _details; }
+            set { SetProperty(ref _details, value); }
+        }
+
+
+        private async void ExecuteLogInCommand()
+        {
+
+            await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation: true);
+
+            var registeredUser = await _database.GetUserByUserName(Details.Username);
 
             var loginResult = _menuService.LogIn("Test User", "Password");
 
-            
+
+
             var userProfile = new UserP();
 
             if (loginResult)
             {
                 _eventAggregator.GetEvent<LogInMessage>().Publish(userProfile);
             }
+
         }
        private async void ExecuteCreateNewAccountCommand()
         {
+            
             await NavigationService.NavigateAsync("SignUpPage");
         }
-        public MainPageViewModel(INavigationService navigationService, IMenuService menuService, IEventAggregator eventAggregator) : base(navigationService)
+        public MainPageViewModel(INavigationService navigationService, IMenuService menuService, IEventAggregator eventAggregator, IDatabase database) : base(navigationService)
         {
             Title = "Main Page";
 
+            _database = database;
+
+            Details = new SignUpDetails();
         }
     }
 }

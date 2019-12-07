@@ -18,21 +18,25 @@ namespace SafetyForAllApp.ViewModels
         public DelegateCommand RegisterCommand =>
             _registerCommand ?? (_registerCommand = new DelegateCommand(ExecuteRegisterCommand));
 
+        private SignUpDetails _details;
         public SignUpDetails Details { get; set; }
 
-       private async void ExecuteRegisterCommand()
+
+
+        public SignUpPageViewModel(INavigationService navigationService, IDatabase database) : base(navigationService)
+        {
+            var details = new SignUpDetails();
+            Details = details;
+        }
+
+        private async void ExecuteRegisterCommand()
         {
 
-            //var connection = new SQLconn();
-            //await connection.SaveItemAsync(Details);
+            var connection = new SQLconn();
+            await connection.SaveItemAsync(Details);
 
             //await _database.SaveItemAsync(Details);
             await NavigationService.NavigateAsync("MainPage");
-        }
-
-        public SignUpPageViewModel(INavigationService navigationService) : base(navigationService)
-        {
-            
         }
     }
 }

@@ -7,10 +7,11 @@
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Image Source="BarImage.jpg"/>
 
-        <Entry Text="Username, Phone or Email" FontSize="Small"
-               TextColor="Black"/>
-            
-        <Entry Text="Password" FontSize="Small" TextColor="Black"/>
+        <Entry Text="{Binding Details.Username}" FontSize="Small"
+               TextColor="Black" Placeholder="Username, Email or PhoneNumber"/>
+
+        <Entry Text="{Binding Details.Password}" FontSize="Small" TextColor="Black"
+               Placeholder="Password"/>
 
         <Button Text="Log In" Command="{Binding LogInCommand}" Margin="20,0,20,0"/>
 

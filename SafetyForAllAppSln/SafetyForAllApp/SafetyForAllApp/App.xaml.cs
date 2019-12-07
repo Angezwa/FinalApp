@@ -26,7 +26,7 @@ namespace SafetyForAllApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MainPage"); 
 //            await NavigationService.NavigateAsync("MainPage");
         }
 

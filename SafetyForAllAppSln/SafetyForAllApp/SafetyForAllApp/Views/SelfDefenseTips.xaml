@@ -4,5 +4,8 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="SafetyForAllApp.Views.SelfDefenseTips">
-  
+    <StackLayout>
+        <Label Text="S E L F - D E F E N S E   T I P S" FontAttributes="Bold" 
+               HorizontalOptions="CenterAndExpand" HeightRequest="200"/>
+    </StackLayout>
 </ContentPage>
