@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
@@ -36,7 +36,8 @@
                 <Entry Text="{Binding PhoneNumber}" Grid.Row="4" Grid.Column="0" 
                        Placeholder="Phone Number" HorizontalOptions="Center"/>
 
-                <Button Text="Save Changes" Grid.Row="5" Grid.Column="0" CornerRadius="20"/>
+                <Button Text="Save Changes" Grid.Row="5" Grid.Column="0" CornerRadius="20" 
+                        HorizontalOptions="EndAndExpand" Command="{Binding SaveChangesCommand}"/>
             </Grid>
         </StackLayout>
 

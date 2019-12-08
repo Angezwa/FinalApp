@@ -78,7 +78,7 @@ namespace SafetyForAllApp.Service
             _allMenuItems = new List<DetailsItem>();
 
             var menuItem = new DetailsItem();
-            menuItem.Id = 2;
+            menuItem.Id = 1;
             menuItem.DetailsItemName = "Home";
             menuItem.NavigationPath = "NavigationPage/MenuPage";
             menuItem.MenuType = MenuItemEnum.UnSecured;
@@ -98,9 +98,9 @@ namespace SafetyForAllApp.Service
             _allMenuItems.Add(menuItem);
 
             menuItem = new DetailsItem();
-            menuItem.Id = 4;
-            menuItem.DetailsItemName = "Self Difense Tips ";
-            menuItem.NavigationPath = "NavigationPage/SelfDefenseTips";
+            menuItem.Id = 3;
+            menuItem.DetailsItemName = "Self Defense Tips ";
+            menuItem.NavigationPath = "";
             menuItem.MenuOrder = 4;
             menuItem.MenuType = MenuItemEnum.UnSecured;
             menuItem.DetailsImageName = "SD.png";
@@ -108,7 +108,7 @@ namespace SafetyForAllApp.Service
             _allMenuItems.Add(menuItem);
 
             menuItem = new DetailsItem();
-            menuItem.Id = 3;
+            menuItem.Id = 4;
             menuItem.DetailsItemName = "My Profile";
             menuItem.NavigationPath = "NavigationPage/Profile";
             menuItem.MenuOrder = 3;
@@ -128,7 +128,7 @@ namespace SafetyForAllApp.Service
             _allMenuItems.Add(menuItem);
 
             menuItem = new DetailsItem();
-            menuItem.Id = 1;
+            menuItem.Id = 6;
             menuItem.DetailsItemName = "About Us";
             menuItem.NavigationPath = "NavigationPage/Profile";
             menuItem.MenuOrder = 1;

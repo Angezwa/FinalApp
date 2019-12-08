@@ -3,6 +3,8 @@ using Android.Content.PM;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using SafetyForAllApp.Droid.Services;
+using SafetyForAllApp.Service.Interfaces;
 
 namespace SafetyForAllApp.Droid
 {
@@ -19,14 +21,18 @@ namespace SafetyForAllApp.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App(new AndroidInitializer()));
         }
-    }
 
-    public class AndroidInitializer : IPlatformInitializer
-    {
-        public void RegisterTypes(IContainerRegistry containerRegistry)
+
+
+
+        public class AndroidInitializer : IPlatformInitializer
         {
-            // Register any platform specific implementations
+            public void RegisterTypes(IContainerRegistry containerRegistry)
+            {
+                // Register any platform specific implementations
+
+                containerRegistry.Register<IDocumentViewer, DroidDocumentViewer>();
+            }
         }
     }
 }
-
