@@ -13,14 +13,14 @@
         <Entry Text="{Binding Details.Password}" FontSize="Small" TextColor="Black"
                Placeholder="Password"/>
 
-        <Button Text="Log In" Command="{Binding LogInCommand}" Margin="20,0,20,0"/>
+        <Button Text="Log In" Command="{Binding LogInCommand}" Margin="20,0,20,0" BackgroundColor="IndianRed"/>
 
         <Label Text="Forgot Password" TextColor="Black"/>
 
         <Label Text="Or" HorizontalOptions="CenterAndExpand"  TextColor="Black"/>
 
         <Button Text="Create New Account" Command="{Binding CreateNewAccountCommand}"
-                Margin="20,0,20,0"/>
+                Margin="20,0,20,0" BackgroundColor="IndianRed" />
          
     </StackLayout>
     

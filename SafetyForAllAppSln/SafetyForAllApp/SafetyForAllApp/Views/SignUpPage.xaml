@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="SafetyForAllApp.Views.SignUpPage" BackgroundColor="White">
     <StackLayout>
-        <Image Source="Profile1" WidthRequest="200" HeightRequest="200"/>
+        <Image Source="P.png" WidthRequest="200" HeightRequest="200"/>
         <Label Text="Registration" HorizontalOptions="EndAndExpand" 
                Margin="0,0,30,0" TextColor="Black" FontAttributes="Bold"/>
         <Entry Text="{Binding Details.Username}" Margin="80,20,20,0" Placeholder="Username"/>

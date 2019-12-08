@@ -1,5 +1,6 @@
 ﻿using Prism;
 using Prism.Ioc;
+using SafetyForAllApp.Model;
 using SafetyForAllApp.MyDatabase;
 using SafetyForAllApp.Service;
 using SafetyForAllApp.Service.Interfaces;
@@ -34,6 +35,7 @@ namespace SafetyForAllApp
         {
             containerRegistry.RegisterSingleton<IDatabase, SQLconn>();
             containerRegistry.RegisterSingleton<IMenuService, MenuService>();
+            containerRegistry.RegisterSingleton<IUserP, UserP>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();

@@ -19,8 +19,12 @@ namespace SafetyForAllApp.ViewModels
         private IPageDialogService _dialogService;
         public bool PasswordExist { get; set; }
 
+        public SignUpDetails LogInDetails { get; set; }
+
         private IMenuService _menuService;
         private IEventAggregator _eventAggregator;
+
+       
 
         private DelegateCommand _createNewAccountCommand;
         public DelegateCommand CreateNewAccountCommand =>
@@ -42,34 +46,53 @@ namespace SafetyForAllApp.ViewModels
         private async void ExecuteLogInCommand()
         {
 
-            await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation: true);
+            
 
-            var registeredUser = await _database.GetUserByUserName(Details.Username);
+            var registeredUser = await _database.GetUserByUserName(LogInDetails.Username);
 
-            var loginResult = _menuService.LogIn("Test User", "Password");
-
-
-
-            var userProfile = new UserP();
-
-            if (loginResult)
+            if (LogInDetails.Username == null)
             {
-                _eventAggregator.GetEvent<LogInMessage>().Publish(userProfile);
+                await _dialogService.DisplayAlertAsync("Alert", "Please Fill in Username!", "ok"); 
+            }
+            else if (LogInDetails.Password == null)
+            {
+                await _dialogService.DisplayAlertAsync("Alert", "Please Fill in Password", "ok");
+            }
+            else
+            {
+                await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation: true);
             }
 
+            //var loginResult = _menuService.LogIn("Test User", "Password");
+
+
+
+            //var userProfile = new UserP();
+
+            //if (loginResult)
+            //{
+            //    _eventAggregator.GetEvent<LogInMessage>().Publish(userProfile);
+            //}
+
+            
         }
        private async void ExecuteCreateNewAccountCommand()
         {
             
             await NavigationService.NavigateAsync("SignUpPage");
         }
-        public MainPageViewModel(INavigationService navigationService, IMenuService menuService, IEventAggregator eventAggregator, IDatabase database) : base(navigationService)
+        public MainPageViewModel(INavigationService navigationService,IPageDialogService dialogService, IMenuService menuService, IEventAggregator eventAggregator, IDatabase database) : base(navigationService)
         {
             Title = "Main Page";
 
             _database = database;
 
+            _dialogService = dialogService;
+
             Details = new SignUpDetails();
+            LogInDetails = Details;
+
+
         }
     }
 }

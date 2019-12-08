@@ -6272,22 +6272,13 @@ namespace SafetyForAllApp.Droid
 			public const int P = 2131165505;
 			
 			// aapt resource value: 0x7F070142
-			public const int PB = 2131165506;
+			public const int SD = 2131165506;
 			
 			// aapt resource value: 0x7F070143
-			public const int Prof = 2131165507;
+			public const int tooltip_frame_dark = 2131165507;
 			
 			// aapt resource value: 0x7F070144
-			public const int Profile1 = 2131165508;
-			
-			// aapt resource value: 0x7F070145
-			public const int SD = 2131165509;
-			
-			// aapt resource value: 0x7F070146
-			public const int tooltip_frame_dark = 2131165510;
-			
-			// aapt resource value: 0x7F070147
-			public const int tooltip_frame_light = 2131165511;
+			public const int tooltip_frame_light = 2131165508;
 			
 			static Drawable()
 			{

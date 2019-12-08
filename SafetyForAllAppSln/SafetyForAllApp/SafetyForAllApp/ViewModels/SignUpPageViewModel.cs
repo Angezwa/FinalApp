@@ -27,15 +27,19 @@ namespace SafetyForAllApp.ViewModels
         {
             var details = new SignUpDetails();
             Details = details;
+
+            _database = database;
         }
 
         private async void ExecuteRegisterCommand()
         {
+            var registeredUser = await _database.GetUserByUserName(Details.Username);
 
-            var connection = new SQLconn();
-            await connection.SaveItemAsync(Details);
+            //var connection = new SQLconn();
+            //await connection.SaveItemAsync(Details);
 
-            //await _database.SaveItemAsync(Details);
+            await _database.SaveItemAsync(Details);
+
             await NavigationService.NavigateAsync("MainPage");
         }
     }

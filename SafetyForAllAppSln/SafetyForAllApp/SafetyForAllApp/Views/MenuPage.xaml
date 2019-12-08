@@ -8,8 +8,8 @@
         
         <Label Text="Feel Unsafe?" TextColor="Black" Margin="70,50,70,-60" 
                HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
-        <Label Text="Press To The Button To Send Arlet" TextColor="Black" 
-               Margin="70,70,20,0" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+        <Label Text="Press The Button To Send Alert" TextColor="Black" 
+               Margin="60,70,20,0" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
         <Image Source="alert.png" Margin="10,0,10,10" WidthRequest="140" HeightRequest="240">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding HelpMeCommand}">
@@ -17,9 +17,8 @@
             </Image.GestureRecognizers>
         </Image>
 
-
         <Label Text="H E L P   M E !!" TextColor="Red" FontAttributes="Bold" FontSize="Large" 
-               HorizontalOptions="CenterAndExpand" Margin="0,-60,0,0"/>
+               HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
         
     </StackLayout>
 </ContentPage>

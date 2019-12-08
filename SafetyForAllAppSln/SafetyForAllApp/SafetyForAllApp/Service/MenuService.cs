@@ -103,7 +103,7 @@ namespace SafetyForAllApp.Service
             menuItem.NavigationPath = "";
             menuItem.MenuOrder = 4;
             menuItem.MenuType = MenuItemEnum.UnSecured;
-            menuItem.DetailsImageName = "SD.png";
+            menuItem.DetailsImageName = "SD.jpg";
 
             _allMenuItems.Add(menuItem);
 
