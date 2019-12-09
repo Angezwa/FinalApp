@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+}
+
+button {
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin: 15px 0px 0px 0px;
+    background-color: brown;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.507);
+    border: none;
+    text-transform: uppercase;
+    color: cornsilk;
+    transition: all .5s;
+    animation:  slideUp 1.5s ease-in backwards;
+    animation-duration: 2s;
+}
+
+button:hover {
+    background-color: rgb(190, 44, 44);
+}
+
+h1 {
+    font-family: sans-serif;
+    margin-top: 0;
+}
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.5em;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}

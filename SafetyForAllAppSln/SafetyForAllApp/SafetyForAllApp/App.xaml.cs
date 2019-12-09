@@ -36,16 +36,15 @@ namespace SafetyForAllApp
             containerRegistry.RegisterSingleton<IDatabase, SQLconn>();
             containerRegistry.RegisterSingleton<IMenuService, MenuService>();
             containerRegistry.RegisterSingleton<IUserP, UserP>();
+            containerRegistry.RegisterSingleton<IContentPackage, ZipPackage>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-
             containerRegistry.RegisterForNavigation<SignUpPage, SignUpPageViewModel>();
             containerRegistry.RegisterForNavigation<MenuPage, MenuPageViewModel>();
-
             containerRegistry.RegisterForNavigation<MasterDetail, MasterDetailViewModel>();
             containerRegistry.RegisterForNavigation<Profile, ProfileViewModel>();
-            containerRegistry.RegisterForNavigation<SelfDefenseTips, SelfDefenseTipsViewModel>();
+            containerRegistry.RegisterForNavigation<AboutApp, AboutAppViewModel>();
         }
     }
 }

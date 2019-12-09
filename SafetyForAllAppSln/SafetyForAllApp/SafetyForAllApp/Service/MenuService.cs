@@ -130,7 +130,7 @@ namespace SafetyForAllApp.Service
             menuItem = new DetailsItem();
             menuItem.Id = 6;
             menuItem.DetailsItemName = "About Us";
-            menuItem.NavigationPath = "NavigationPage/Profile";
+            menuItem.NavigationPath = "NavigationPage/AboutApp";
             menuItem.MenuOrder = 1;
             menuItem.MenuType = MenuItemEnum.UnSecured;
             menuItem.DetailsImageName = "Info.png";

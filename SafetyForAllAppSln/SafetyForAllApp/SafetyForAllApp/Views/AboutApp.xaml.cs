@@ -2,9 +2,9 @@
 
 namespace SafetyForAllApp.Views
 {
-    public partial class SelfDefenseTips : ContentPage
+    public partial class AboutApp : ContentPage
     {
-        public SelfDefenseTips()
+        public AboutApp()
         {
             InitializeComponent();
         }
