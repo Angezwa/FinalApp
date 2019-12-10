@@ -120,7 +120,7 @@ namespace SafetyForAllApp.Service
             menuItem = new DetailsItem();
             menuItem.Id = 5;
             menuItem.DetailsItemName = "Map";
-            menuItem.NavigationPath = "NavigationPage/Profile";
+            menuItem.NavigationPath = "NavigationPage/ShareLocation";
             menuItem.MenuOrder = 5;
             menuItem.MenuType = MenuItemEnum.UnSecured;
             menuItem.DetailsImageName = "Map.png";

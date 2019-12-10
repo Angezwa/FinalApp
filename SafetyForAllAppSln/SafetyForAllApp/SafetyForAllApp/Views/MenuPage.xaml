@@ -10,15 +10,26 @@
                HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
         <Label Text="Press The Button To Send Alert" TextColor="Black" 
                Margin="60,70,20,0" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
-        <Image Source="alert.png" Margin="10,0,10,10" WidthRequest="140" HeightRequest="240">
+        <Image Source="alert.png" Margin="10,0,10,10" WidthRequest="140" HeightRequest="150">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding HelpMeCommand}">
                 </TapGestureRecognizer>
             </Image.GestureRecognizers>
         </Image>
 
-        <Label Text="H E L P   M E !!" TextColor="Red" FontAttributes="Bold" FontSize="Large" 
+        <Label Text="H E L P   M E !!" TextColor="IndianRed" FontAttributes="Bold" FontSize="Large" 
                HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+
+        
+        <Button Text="Report Gender-Based Violence" Command="{Binding ReportGBVCommand}" Margin="20,20,20,0" 
+                BackgroundColor="IndianRed" BorderColor="Maroon" BorderWidth="3" CornerRadius="10"/>
+        
+        <Button Text="Share Location" Command="{Binding ShareLocationCommand}" Margin="20,20,20,0" 
+                BackgroundColor="IndianRed" BorderColor="Maroon" BorderWidth="3" CornerRadius="10"/>
+        
+        <Button Text="Emergency Phone Directory" Command="{Binding EPDCommand}" Margin="20,20,20,0" 
+                BackgroundColor="IndianRed" BorderColor="Maroon" BorderWidth="3" CornerRadius="10"/>
+       
         
     </StackLayout>
 </ContentPage>

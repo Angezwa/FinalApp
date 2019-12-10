@@ -37,6 +37,7 @@ namespace SafetyForAllApp
             containerRegistry.RegisterSingleton<IMenuService, MenuService>();
             containerRegistry.RegisterSingleton<IUserP, UserP>();
             containerRegistry.RegisterSingleton<IContentPackage, ZipPackage>();
+            containerRegistry.RegisterSingleton<IMapping, MappingService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
@@ -45,6 +46,9 @@ namespace SafetyForAllApp
             containerRegistry.RegisterForNavigation<MasterDetail, MasterDetailViewModel>();
             containerRegistry.RegisterForNavigation<Profile, ProfileViewModel>();
             containerRegistry.RegisterForNavigation<AboutApp, AboutAppViewModel>();
+            containerRegistry.RegisterForNavigation<ReportGbv, ReportGbvViewModel>();
+            containerRegistry.RegisterForNavigation<ShareLocation, ShareLocationViewModel>();
+            containerRegistry.RegisterForNavigation<EmergencyDirectory, EmergencyDirectoryViewModel>();
         }
     }
 }
