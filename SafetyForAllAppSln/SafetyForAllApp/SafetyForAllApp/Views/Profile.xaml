@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                
+
                 <Entry Text="{Binding Username}" Grid.Row="0" Grid.Column="0" 
                        Placeholder="Username" HorizontalOptions="Center"/>
                 <Entry Text="{Binding FullNames}" Grid.Row="1" Grid.Column="0" 

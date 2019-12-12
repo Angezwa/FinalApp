@@ -10,7 +10,6 @@ namespace SafetyForAllApp.Service.Interfaces
    {
         Task<List<SignUpDetails>> GetItemsAsync();
         Task<List<SignUpDetails>> GetItemsNotDoneAsync();
-        Task<SignUpDetails> GetItemAsync(int id);
         Task<int> SaveItemAsync(SignUpDetails item);
         Task<int> DeleteItemAsync(SignUpDetails item);
         Task<SignUpDetails> GetUserByUserName(string userName);

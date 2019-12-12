@@ -1,24 +1,18 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace SafetyForAllApp.Model
+namespace SafetyForAllWebApplication.Models
 {
-   public class SignUpDetails
+    public class SignUpDetail
     {
-        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Username { get; set; }
         public string FullName { get; set; }
         public string Gender { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
-
-        
-        
-
-
 
     }
 }

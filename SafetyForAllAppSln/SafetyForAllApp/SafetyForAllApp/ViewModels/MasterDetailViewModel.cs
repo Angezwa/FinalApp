@@ -66,6 +66,7 @@ namespace SafetyForAllApp.ViewModels
             DetailsItems = new ObservableCollection<DetailsItem>(_menuService.GetAllowedAccessItems());
 
             _eventAggregator.GetEvent<LogInMessage>().Subscribe(LoginEvent);
+
             _eventAggregator.GetEvent<LogOutMessage>().Subscribe(LogOutEvent);
 
 
@@ -73,7 +74,7 @@ namespace SafetyForAllApp.ViewModels
 
         }
 
-        public void LoginEvent(UserP userProfile)
+        public void LoginEvent()
         {
             DetailsItems = new ObservableCollection<DetailsItem>(_menuService.GetAllowedAccessItems());
 

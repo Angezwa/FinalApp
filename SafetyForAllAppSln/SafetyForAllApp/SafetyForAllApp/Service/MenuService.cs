@@ -81,7 +81,7 @@ namespace SafetyForAllApp.Service
             menuItem.Id = 1;
             menuItem.DetailsItemName = "Home";
             menuItem.NavigationPath = "NavigationPage/MenuPage";
-            menuItem.MenuType = MenuItemEnum.UnSecured;
+            menuItem.MenuType = MenuItemEnum.Secured;
             menuItem.MenuOrder = 2;
             menuItem.DetailsImageName = "H.png";
 
@@ -93,7 +93,7 @@ namespace SafetyForAllApp.Service
             menuItem.NavigationPath = "NavigationPage/MainPage";
             menuItem.MenuOrder = 99;
             menuItem.MenuType = MenuItemEnum.LogOut;
-            menuItem.DetailsImageName = "logout.png";
+            menuItem.DetailsImageName = "download.png";
 
             _allMenuItems.Add(menuItem);
 
@@ -102,7 +102,7 @@ namespace SafetyForAllApp.Service
             menuItem.DetailsItemName = "Self Defense Tips ";
             menuItem.NavigationPath = "";
             menuItem.MenuOrder = 4;
-            menuItem.MenuType = MenuItemEnum.UnSecured;
+            menuItem.MenuType = MenuItemEnum.Secured;
             menuItem.DetailsImageName = "SD.jpg";
 
             _allMenuItems.Add(menuItem);
@@ -112,7 +112,7 @@ namespace SafetyForAllApp.Service
             menuItem.DetailsItemName = "My Profile";
             menuItem.NavigationPath = "NavigationPage/Profile";
             menuItem.MenuOrder = 3;
-            menuItem.MenuType = MenuItemEnum.UnSecured;
+            menuItem.MenuType = MenuItemEnum.Secured;
             menuItem.DetailsImageName = "ED.png";
 
             _allMenuItems.Add(menuItem);
@@ -122,7 +122,7 @@ namespace SafetyForAllApp.Service
             menuItem.DetailsItemName = "Map";
             menuItem.NavigationPath = "NavigationPage/ShareLocation";
             menuItem.MenuOrder = 5;
-            menuItem.MenuType = MenuItemEnum.UnSecured;
+            menuItem.MenuType = MenuItemEnum.Secured;
             menuItem.DetailsImageName = "Map.png";
 
             _allMenuItems.Add(menuItem);

@@ -36,10 +36,8 @@ namespace SafetyForAllApp.MyDatabase
             return database.QueryAsync<SignUpDetails>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
         }
 
-        public Task<SignUpDetails> GetItemAsync(int id)
-        {
-            return database.Table<SignUpDetails>().Where(i => i.ID == id).FirstOrDefaultAsync();
-        }
+      
+        
 
         public Task<int> SaveItemAsync(SignUpDetails item)
         {
@@ -60,6 +58,8 @@ namespace SafetyForAllApp.MyDatabase
 
         public async Task<SignUpDetails> GetUserByUserName(string userName)
         {
+            var users = await database.Table<SignUpDetails>().ToListAsync();
+
             return await database.Table<SignUpDetails>().Where(x => x.Username == userName).FirstOrDefaultAsync();
         }
     }

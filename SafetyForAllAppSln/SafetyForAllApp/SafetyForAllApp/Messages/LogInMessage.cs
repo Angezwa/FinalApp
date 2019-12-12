@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SafetyForAllApp.Messages
 {
-    class LogInMessage : PubSubEvent<UserP>
+    public class LogInMessage : PubSubEvent
     {
     }
 }

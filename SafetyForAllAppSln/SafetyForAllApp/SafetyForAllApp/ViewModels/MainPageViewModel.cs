@@ -17,14 +17,11 @@ namespace SafetyForAllApp.ViewModels
     {
         private IDatabase _database;
         private IPageDialogService _dialogService;
-        public bool PasswordExist { get; set; }
-
-        public SignUpDetails LogInDetails { get; set; }
-
         private IMenuService _menuService;
         private IEventAggregator _eventAggregator;
 
-       
+        public bool PasswordExist { get; set; }
+        public SignUpDetails LogInDetails { get; set; }
 
         private DelegateCommand _createNewAccountCommand;
         public DelegateCommand CreateNewAccountCommand =>
@@ -46,35 +43,46 @@ namespace SafetyForAllApp.ViewModels
         private async void ExecuteLogInCommand()
         {
 
-            
-
             var registeredUser = await _database.GetUserByUserName(LogInDetails.Username);
+
+            if (registeredUser == null)
+            {
+                await _dialogService.DisplayAlertAsync("Alert", "User does not exist!", "ok");
+                return;
+            }
+
 
             if (LogInDetails.Username == null)
             {
-                await _dialogService.DisplayAlertAsync("Alert", "Please Fill in Username!", "ok"); 
+                await _dialogService.DisplayAlertAsync("Alert", "Please Fill in Username!", "ok");
             }
             else if (LogInDetails.Password == null)
             {
                 await _dialogService.DisplayAlertAsync("Alert", "Please Fill in Password", "ok");
             }
             else
+
             {
-                await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation: true);
+                if (registeredUser.Password == LogInDetails.Password)
+                {
+                    PasswordExist = true;
+                    var loginResult = _menuService.LogIn("Test User", "Password");
+
+                   // var userProfile = new UserP();
+
+                    if (loginResult)
+                    {
+                        _eventAggregator.GetEvent<LogInMessage>().Publish();
+                    }
+
+           //         await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation: true);
+                    return;
+                }
+
+                else
+                    PasswordExist = false;
+
             }
-
-            //var loginResult = _menuService.LogIn("Test User", "Password");
-
-
-
-            //var userProfile = new UserP();
-
-            //if (loginResult)
-            //{
-            //    _eventAggregator.GetEvent<LogInMessage>().Publish(userProfile);
-            //}
-
-            
         }
        private async void ExecuteCreateNewAccountCommand()
         {
@@ -87,7 +95,10 @@ namespace SafetyForAllApp.ViewModels
 
             _database = database;
 
+            _eventAggregator = eventAggregator;
             _dialogService = dialogService;
+            _menuService = menuService;
+            
 
             Details = new SignUpDetails();
             LogInDetails = Details;
