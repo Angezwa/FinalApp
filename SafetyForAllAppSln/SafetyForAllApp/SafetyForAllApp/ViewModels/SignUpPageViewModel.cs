@@ -41,13 +41,14 @@ namespace SafetyForAllApp.ViewModels
 
             await _database.SaveItemAsync(Details);
 
-            //var client = new HttpClient();
-            //var url = "http://10.0.2.2:5000/SignUpDetails";
-            //var json = JsonConvert.SerializeObject(Details);
-            //var content = new StringContent(json, Encoding.UTF8, "application/json");
-            //await client.PostAsync(url, content);
+            var client = new HttpClient();
+            var url = "http://10.0.2.2:5000/SignUpDetails";
+            var json = JsonConvert.SerializeObject(Details);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            await client.PostAsync(url, content);
 
             await NavigationService.NavigateAsync("MainPage");
+
         }
     }
 }
