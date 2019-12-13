@@ -19,6 +19,8 @@ namespace SafetyForAllApp.ViewModels
         private IPageDialogService _dialogService;
         private IMenuService _menuService;
         private IEventAggregator _eventAggregator;
+        private IUserP _profile;
+
 
         public bool PasswordExist { get; set; }
         public SignUpDetails LogInDetails { get; set; }
@@ -68,14 +70,15 @@ namespace SafetyForAllApp.ViewModels
                     PasswordExist = true;
                     var loginResult = _menuService.LogIn("Test User", "Password");
 
-                   // var userProfile = new UserP();
+                    // var userProfile = new UserP();
 
                     if (loginResult)
                     {
+                        _profile.SetLoggedinUser(registeredUser);
                         _eventAggregator.GetEvent<LogInMessage>().Publish();
                     }
 
-           //         await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation: true);
+                    //         await NavigationService.NavigateAsync("MasterDetail/NavigationPage/MenuPage", useModalNavigation: true);
                     return;
                 }
 
@@ -84,12 +87,12 @@ namespace SafetyForAllApp.ViewModels
 
             }
         }
-       private async void ExecuteCreateNewAccountCommand()
+        private async void ExecuteCreateNewAccountCommand()
         {
-            
+
             await NavigationService.NavigateAsync("SignUpPage");
         }
-        public MainPageViewModel(INavigationService navigationService,IPageDialogService dialogService, IMenuService menuService, IEventAggregator eventAggregator, IDatabase database) : base(navigationService)
+        public MainPageViewModel(INavigationService navigationService, IPageDialogService dialogService, IMenuService menuService, IEventAggregator eventAggregator, IDatabase database, IUserP profile) : base(navigationService)
         {
             Title = "Main Page";
 
@@ -98,7 +101,7 @@ namespace SafetyForAllApp.ViewModels
             _eventAggregator = eventAggregator;
             _dialogService = dialogService;
             _menuService = menuService;
-            
+            _profile = profile;
 
             Details = new SignUpDetails();
             LogInDetails = Details;

@@ -57,7 +57,7 @@ namespace SafetyForAllApp.ViewModels
 
 
             await SendSms("I need Help, I'm in Danger", contactNumbers.ToArray());
-            //await SendCoordinates()
+            
         }
         public MenuPageViewModel(INavigationService navigationService) : base(navigationService)
         {

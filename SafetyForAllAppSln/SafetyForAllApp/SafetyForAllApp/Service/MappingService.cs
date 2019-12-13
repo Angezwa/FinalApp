@@ -3,6 +3,8 @@ using SafetyForAllApp.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms.Maps;
 
 namespace SafetyForAllApp.Service
@@ -11,13 +13,16 @@ namespace SafetyForAllApp.Service
     {
         int _pinCreatedCount = 0;
 
-        public Location GetNewLocation()
+        public async Task<ControlExamples.Controls.Maps.Location> GetNewLocation()
         {
-            _pinCreatedCount++;
-            return new Location(
-                $"Pin {_pinCreatedCount}",
-                $"Desc {_pinCreatedCount}",
-                RandomPosition.Next(new Position(-33.933329, 18.6333308), 4, 10));
+
+            var location = await Geolocation.GetLastKnownLocationAsync();
+
+            var position = new Position(location.Latitude, location.Longitude);
+
+            var returnLocation = new ControlExamples.Controls.Maps.Location("Current Location","Current Location", position);
+
+            return returnLocation;
         }
     }
 }

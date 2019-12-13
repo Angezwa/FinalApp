@@ -25,15 +25,15 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Entry Text="{Binding Username}" Grid.Row="0" Grid.Column="0" 
+                <Entry Text="{Binding LoggedInUser.Username}" Grid.Row="0" Grid.Column="0" 
                        Placeholder="Username" HorizontalOptions="Center"/>
-                <Entry Text="{Binding FullNames}" Grid.Row="1" Grid.Column="0" 
+                <Entry Text="{Binding LoggedInUser.FullName}" Grid.Row="1" Grid.Column="0" 
                        Placeholder="FullName" HorizontalOptions="Center"/>
-                <Entry Text="{Binding Gender}" Grid.Row="2" Grid.Column="0" 
+                <Entry Text="{Binding LoggedInUser.Gender}" Grid.Row="2" Grid.Column="0" 
                        Placeholder="Gender" HorizontalOptions="Center"/>
-                <Entry Text="{Binding Address}" Grid.Row="3" Grid.Column="0" 
+                <Entry Text="{Binding LoggedInUser.Address}" Grid.Row="3" Grid.Column="0" 
                        Placeholder="Address" HorizontalOptions="Center"/>
-                <Entry Text="{Binding PhoneNumber}" Grid.Row="4" Grid.Column="0" 
+                <Entry Text="{Binding LoggedInUser.PhoneNumber}" Grid.Row="4" Grid.Column="0" 
                        Placeholder="Phone Number" HorizontalOptions="Center"/>
 
                 <Button Text="Save Changes" Grid.Row="5" Grid.Column="0" CornerRadius="20" 

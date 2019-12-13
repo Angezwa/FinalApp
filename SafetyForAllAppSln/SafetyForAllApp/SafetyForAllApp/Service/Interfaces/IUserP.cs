@@ -1,10 +1,14 @@
-﻿using System;
+﻿using SafetyForAllApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SafetyForAllApp.Service.Interfaces
 {
-    interface IUserP
+    public interface IUserP
     {
+        void SetLoggedinUser(SignUpDetails signUpDetails);
+
+        SignUpDetails GetLoggedInUser();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using ControlExamples.Controls.Maps;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using SafetyForAllApp.Model;
@@ -18,29 +19,14 @@ namespace SafetyForAllApp.ViewModels
 
         readonly ObservableCollection<Location> _locations;
 
+        private MapSpan _centerPosition;
+        public MapSpan CenterPosition
+        {
+            get { return _centerPosition; }
+            set { SetProperty(ref _centerPosition, value); }
+        }
+
         public IEnumerable Locations => _locations;
-
-
-        private DelegateCommand _addLocationCommand;
-        public DelegateCommand AddLocationCommand =>
-            _addLocationCommand ?? (_addLocationCommand = new DelegateCommand(ExecuteAddLocation));
-        private DelegateCommand _removeLocationCommand;
-
-        public DelegateCommand RemoveLocationCommand =>
-            _removeLocationCommand ?? (_removeLocationCommand = new DelegateCommand(ExecuteRemoveLocation));
-
-        private DelegateCommand _clearLocationCommand;
-        public DelegateCommand ClearLocationsCommand =>
-    _clearLocationCommand ?? (_clearLocationCommand = new DelegateCommand(ExecuteClearLocation));
-
-
-        private DelegateCommand _updateLocationCommand;
-        public DelegateCommand UpdateLocationCommand =>
-    _updateLocationCommand ?? (_updateLocationCommand = new DelegateCommand(ExecuteUpdateLocations));
-
-        private DelegateCommand _replaceLocationCommand;
-        public DelegateCommand ReplaceLocationCommand =>
-        _replaceLocationCommand ?? (_replaceLocationCommand = new DelegateCommand(ExecuteReplaceLocation));
 
 
         public ShareLocationViewModel(INavigationService navigationService, IMapping mapping) : base(navigationService)
@@ -50,48 +36,17 @@ namespace SafetyForAllApp.ViewModels
              _mappingService = mapping;
         }
 
-        private void ExecuteAddLocation()
+        public async  override void Initialize(INavigationParameters parameters)
         {
-            _locations.Add(_mappingService.GetNewLocation());
-        }
+            base.Initialize(parameters);
 
-        private void ExecuteUpdateLocations()
-        {
-            if (!_locations.Any())
-            {
-                return;
-            }
+            var location = await _mappingService.GetNewLocation();
 
-            double lastLatitude = _locations.Last().Position.Latitude;
-            foreach (Location location in Locations)
-            {
-                location.Position = new Position(lastLatitude, location.Position.Longitude);
-            }
+            CenterPosition = MapSpan.FromCenterAndRadius(location.Position, Distance.FromMiles(10));
 
-        }
 
-        private void ExecuteReplaceLocation()
-        {
-            if (!_locations.Any())
-            {
-                return;
-            }
 
-            _locations[_locations.Count - 1] = _mappingService.GetNewLocation();
-
-        }
-
-        private void ExecuteClearLocation()
-        {
-            _locations.Clear();
-        }
-
-        private void ExecuteRemoveLocation()
-        {
-            if (_locations.Any())
-            {
-                _locations.Remove(_locations.First());
-            }
+            _locations.Add(location);
         }
     }
 }

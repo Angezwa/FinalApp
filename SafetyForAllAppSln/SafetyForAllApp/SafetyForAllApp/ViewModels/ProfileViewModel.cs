@@ -14,6 +14,40 @@ namespace SafetyForAllApp.ViewModels
     {
 
         private IDatabase _database;
+        private IUserP _userP;
+
+
+        private SignUpDetails _loggedInUser;
+        public SignUpDetails LoggedInUser
+        {
+            get { return _loggedInUser; }
+            set { SetProperty(ref _loggedInUser, value); }
+        }
+       
+        public override void Initialize(INavigationParameters parameters)
+        {
+            base.Initialize(parameters);
+            LoggedInUser = _userP.GetLoggedInUser();
+        }
+        //private IUserP _userP;
+
+        //public SignUpDetails UserInfor { get; set; }
+
+        //public List<SignUpDetails> CustomerDetails { get; set; }
+        //private SignUpDetails _loggedin;
+        //private object IUserP;
+
+        //public SignUpDetails LoggedInUser
+        //{
+        //    get { return _loggedin; }
+        //    set { SetProperty(ref _loggedin, value); }
+        //}
+        //public override void Initialize(INavigationParameters parameters)
+        //{
+        //    base.Initialize(parameters);
+        //    LoggedInUser = _userP.GetLoggedInUser();
+        //}
+
 
         private DelegateCommand _saveChangesCommand;
         public DelegateCommand SaveChangesCommand =>
@@ -24,20 +58,23 @@ namespace SafetyForAllApp.ViewModels
 
         }
 
-
-        private SignUpDetails _details;
-        public SignUpDetails Details
-        {
-            get { return _details; }
-            set { SetProperty(ref _details, value); }
-        }
-
-        public ProfileViewModel(INavigationService navigationService, IDatabase database) : base(navigationService)
+        public ProfileViewModel(INavigationService navigationService, IDatabase database, IUserP userP) : base(navigationService)
         {
             Title = "Profile";
 
             _database = database;
+            _userP = userP;
         }
+
+        //private SignUpDetails _details;
+        //public SignUpDetails Details
+        //{
+        //    get { return _details; }
+        //    set { SetProperty(ref _details, value); }
+    }
+}
+
+       
 
         //public async override void Initialize(INavigationParameters parameters)
         //{
@@ -47,7 +84,3 @@ namespace SafetyForAllApp.ViewModels
 
             
         //}
-
-
-    }
-}

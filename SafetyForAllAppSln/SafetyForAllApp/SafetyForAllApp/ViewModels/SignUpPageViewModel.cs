@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using SafetyForAllApp.Model;
@@ -7,6 +8,8 @@ using SafetyForAllApp.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 
 namespace SafetyForAllApp.ViewModels
 {
@@ -35,10 +38,14 @@ namespace SafetyForAllApp.ViewModels
         {
             var registeredUser = await _database.GetUserByUserName(Details.Username);
 
-            //var connection = new SQLconn();
-            //await connection.SaveItemAsync(Details);
 
             await _database.SaveItemAsync(Details);
+
+            //var client = new HttpClient();
+            //var url = "http://10.0.2.2:5000/SignUpDetails";
+            //var json = JsonConvert.SerializeObject(Details);
+            //var content = new StringContent(json, Encoding.UTF8, "application/json");
+            //await client.PostAsync(url, content);
 
             await NavigationService.NavigateAsync("MainPage");
         }

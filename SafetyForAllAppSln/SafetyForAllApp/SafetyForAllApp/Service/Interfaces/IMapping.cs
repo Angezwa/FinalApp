@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SafetyForAllApp.Service.Interfaces
 {
     public interface IMapping
     {
-        Location GetNewLocation();
+        Task<ControlExamples.Controls.Maps.Location> GetNewLocation();
     }
 }

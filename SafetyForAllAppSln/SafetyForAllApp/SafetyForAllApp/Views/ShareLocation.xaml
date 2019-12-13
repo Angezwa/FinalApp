@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:custommap="clr-namespace:ControlExamples.Controls.Maps"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="SafetyForAllApp.Views.ShareLocation">
 
@@ -11,8 +12,8 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <maps:Map x:Name="map"
-                  ItemsSource="{Binding Locations}">
+        <custommap:CustomMap x:Name="map"
+                  ItemsSource="{Binding Locations}" CenterRegion="{Binding CenterPosition}">
             <maps:Map.ItemTemplate>
                 <DataTemplate>
                     <maps:Pin Position="{Binding Position}"
@@ -20,23 +21,7 @@
                               Label="{Binding Description}" />
                 </DataTemplate>
             </maps:Map.ItemTemplate>
-        </maps:Map>
-        <ScrollView Grid.Row="1"
-                    Orientation="Horizontal">
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="Center">
-                <Button Text="Add"
-                        Command="{Binding AddLocationCommand}" />
-                <Button Text="Remove"
-                        Command="{Binding RemoveLocationCommand}" />
-                <Button Text="Clear"
-                        Command="{Binding ClearLocationsCommand}" />
-                <Button Text="Update"
-                        Command="{Binding UpdateLocationsCommand}" />
-                <Button Text="Replace"
-                        Command="{Binding ReplaceLocationCommand}" />
-            </StackLayout>
-        </ScrollView>
+        </custommap:CustomMap>
     </Grid>
 
 

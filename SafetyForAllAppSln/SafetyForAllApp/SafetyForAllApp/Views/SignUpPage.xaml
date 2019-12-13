@@ -5,14 +5,15 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="SafetyForAllApp.Views.SignUpPage" BackgroundColor="White">
     <StackLayout>
-        <Image Source="P.png" WidthRequest="200" HeightRequest="200"/>
-        <Label Text="Registration" HorizontalOptions="EndAndExpand" 
-               Margin="0,0,30,0" TextColor="Black" FontAttributes="Bold"/>
+        <Label Text="Registration" HorizontalOptions="CenterAndExpand" 
+               TextColor="IndianRed" FontAttributes="Bold" FontSize="Large"/>
         <Entry Text="{Binding Details.Username}" Margin="80,20,20,0" Placeholder="Username"/>
         <Entry Text="{Binding Details.FullName}" Margin="80,0,20,0" Placeholder="Full Name"/>
         <Entry Text="{Binding Details.Gender}" Margin="80,0,20,0" Placeholder="Gender"/>
         <Entry Text="{Binding Details.Password}" Margin="80,0,20,0" Placeholder="Password"/>
         <Entry Text="{Binding Details.ConfirmPassword}" Margin="80,0,20,0" Placeholder="Confirm Password"/>
+        <Entry Text="{Binding Details.Address}" Placeholder="Address" Margin="80,0,20,0"/>
+        <Entry Text="{Binding Details.Phonenumber}" Placeholder="Phonenumber" Margin="80,0,20,0"/>
 
         <Button Text="Register" Command="{Binding RegisterCommand}"
                 CornerRadius="120" WidthRequest="280" VerticalOptions="End" 
